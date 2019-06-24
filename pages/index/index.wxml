@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="page-header">
+  <text class="page-header-text">{{ title }}</text>
+</view>
+<scroll-view scroll-y="true" class="page-body">
+  <navigator url="../movie/movie?id={{item.id}}" wx:for="{{ movies }}" wx:key="index">
+    <view class="item">
+      <image src="{{ item.images.small }}" class="poster" />
+      <view class="meta">
+         <view class="title">{{ item.title }}</view>
+         <view class="sub-title">{{ item.original_title }}({{ item.year }})</view>
+         <view class="directors" wx:for="{{ item.directors }}" wx:key="{{ item.id }}">
+           <text>{{ item.name }}</text>
+         </view>
+      </view>
+      <text class="rating">{{ item.rating.average }}</text>
+    </view>
+  </navigator>
+</scroll-view>

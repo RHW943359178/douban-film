@@ -1,0 +1,8 @@
+/* pages/movie/movie.wxss */
+.poster {
+
+}
+.row-info, .row-info view {
+  display: inline-block;
+  font-size: 30rpx;
+}

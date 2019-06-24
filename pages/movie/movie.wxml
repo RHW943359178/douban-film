@@ -1,0 +1,73 @@
+<scroll-view scroll-y="true">
+  <view>
+    <view>
+      <image src="{{ movie.images.large }}" class="poster" mode="scaleToFill" />
+    </view>
+    <view class="movie-info">
+      <view class="row-info">
+        <text>导演：</text>
+        <view wx:for="{{ movie.directors }}" wx:key="{{ item.id }}">
+          <text>{{ item.name }}</text>
+          <text>{{ mark }}</text>
+        </view>
+      </view>
+      <view class="row-info">
+        <text>编剧：</text>
+        <view wx:for="{{ movie.writers }}" wx:key="{{ item.id }}">
+          <text>{{ item.name }}</text>
+          <text>{{ mark }}</text>
+        </view>
+      </view>
+      <view class="row-info">
+        <text>主演：</text>
+        <view wx:for="{{ movie.casts }}" wx:key="{{ item.id }}">
+          <text>{{ item.name }}</text>
+          <text>{{ mark }}</text>
+        </view>
+      </view>
+      <view class="row-info">
+        <text>类型：</text>
+        <view wx:for="{{ movie.genres }}" wx:key="index">
+          <text>{{ item }}</text>
+          <text>{{ mark }}</text>
+        </view>
+      </view>
+      <view class="row-info">
+        <text>制片国家/地区：</text>
+        <text wx:for="{{ movie.countries }}" wx:key="index">
+          <text>{{ item }}</text>
+          <text>{{ mark }}</text>
+        </text>
+      </view>
+      <view class="row-info">
+        <text>语言：</text>
+        <text wx:for="{{ movie.languages }}" wx:key="index">
+          <text>{{ item }}</text>
+          <text>{{ mark }}</text>
+        </text>
+      </view>
+      <view class="row-info">
+        <text>上映时间：</text>
+        <text wx:for="{{ movie.pubdates }}" wx:key="index">
+          <text>{{ item }}</text>
+          <text>{{ mark }}</text>
+        </text>
+      </view>
+      <view class="row-info">
+        <text>片长：{{ movie.durations[0] }}</text>
+      </view>
+      <view class="row-info">
+        <text>别名：</text>
+        <text wx:for="{{ movie.aka }}" wx:key="index">
+          <text>{{ item }}</text>
+          <text>{{ mark }}</text>
+        </text>
+      </view>
+      
+      <view>
+        <text>剧情简介：</text>
+        <text>{{ movie.summary }}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
