@@ -1,30 +1,34 @@
 <scroll-view scroll-y="true">
   <view>
-    <view>
-      <image src="{{ movie.images.large }}" class="poster" mode="scaleToFill" />
+    <view class="original_title">
+      <text>{{ movie.original_title }}</text>
+    </view>
+    <view class="poster">
+      <image src="{{ movie.images.large }}" mode="scaleToFill" />
     </view>
     <view class="movie-info">
       <view class="row-info">
         <text>导演：</text>
         <view wx:for="{{ movie.directors }}" wx:key="{{ item.id }}">
-          <text>{{ item.name }}</text>
+          <text class="person-name">{{ item.name }}</text>
           <text>{{ mark }}</text>
         </view>
       </view>
       <view class="row-info">
         <text>编剧：</text>
         <view wx:for="{{ movie.writers }}" wx:key="{{ item.id }}">
-          <text>{{ item.name }}</text>
+          <text class="person-name">{{ item.name }}</text>
           <text>{{ mark }}</text>
         </view>
       </view>
       <view class="row-info">
         <text>主演：</text>
         <view wx:for="{{ movie.casts }}" wx:key="{{ item.id }}">
-          <text>{{ item.name }}</text>
+          <text class="person-name">{{ item.name }}</text>
           <text>{{ mark }}</text>
         </view>
       </view>
+      
       <view class="row-info">
         <text>类型：</text>
         <view wx:for="{{ movie.genres }}" wx:key="index">
@@ -63,11 +67,21 @@
           <text>{{ mark }}</text>
         </text>
       </view>
-      
       <view>
         <text>剧情简介：</text>
-        <text>{{ movie.summary }}</text>
+        <text class="summary">{{ movie.summary }}</text>
       </view>
     </view>
   </view>
+  <view>
+    <text>剧照：</text>
+  </view>
+  <swiper scroll-x="true" autoplay="{{ autoplay }}" duration="{{ duration }}" interval="{{ interval }}">
+    <block wx:for="{{ movie.photos }}" wx:key="{{ item.id }}">
+      <swiper-item class="movie-photos">
+        <image src="{{ item.image }}" mode="aspectFill" class="swiper-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  
 </scroll-view>

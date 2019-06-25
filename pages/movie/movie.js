@@ -6,7 +6,10 @@ Page({
    */
   data: {
     movie: {},
-    mark: ' / '
+    mark: ' / ',
+    duration: 500,
+    interval: 5000,
+    autoplay: true,
     // #3377aa
   },
 
@@ -23,8 +26,9 @@ Page({
       },
       success: res => {
         console.log(res.data)
+        console.log(res.data.photos)
         this.setData({
-          movie: res.data
+          movie: res.data,
         })
       }
     })
